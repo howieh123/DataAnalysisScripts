@@ -14,6 +14,7 @@ $ cat XOM.csv|./LT.awk 7 100
 will only grab order sizes that were less than 100 shares since field 7 is Quantity.
 
 EndTimeMS,StartTimeMS,OrdNum,OrdType,OrdChange,Symbol,Quantity,Price
+
 53159592,53158997,432534079,B,F,XOM,64,600000
 53159779,53159617,433201185,S,E,XOM,34,600900
 53159781,53159618,433201513,S,C,XOM,36,601300
@@ -33,6 +34,7 @@ $ cat XOM.csv|./GT.awk 7 10000
 will only grab order sizes that were greater than 10000 shares since field 7 is Quantity.
 
 EndTimeMS,StartTimeMS,OrdNum,OrdType,OrdChange,Symbol,Quantity,Price
+
 52779637,52779608,405876241,B,D,XOM,20000,641200
 52865219,50912599,336169958,S,D,XOM,20000,662800
 56066348,56066348,559394914,T,T,XOM,23450,632000
