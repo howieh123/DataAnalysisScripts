@@ -9,7 +9,7 @@ cat "CSVFILE" |./LT.awk fieldtoanalyze valuetocheck
 
 for example 
 
-cat XOM.csv|./LT.awk 7 100
+$ cat XOM.csv|./LT.awk 7 100
 
 will only grab order sizes that were less than 100 shares since field 7 is Quantity.
 
@@ -19,11 +19,6 @@ EndTimeMS,StartTimeMS,OrdNum,OrdType,OrdChange,Symbol,Quantity,Price
 53159781,53159618,433201513,S,C,XOM,36,601300
 53159829,53159783,433201185,S,F,XOM,66,600900
 53159999,53159848,433233473,B,F,XOM,66,600800
-53160260,53160259,433304964,B,E,XOM,21,601100
-53160327,53160324,433304964,B,D,XOM,7,601100
-53160490,53160464,433334526,B,E,XOM,21,601000
-53160550,53160432,433333074,B,D,XOM,79,599500
-53160553,53160550,433350372,B,D,XOM,21,599400
 
 # GT.awk - GreaterThan
 
@@ -33,7 +28,7 @@ cat "CSVFILE" |./GT.awk fieldtoanalyze valuetocheck
 
 for example
 
-cat XOM.csv|./GT.awk 7 10000
+$ cat XOM.csv|./GT.awk 7 10000
 
 will only grab order sizes that were greater than 10000 shares since field 7 is Quantity.
 
@@ -43,14 +38,28 @@ EndTimeMS,StartTimeMS,OrdNum,OrdType,OrdChange,Symbol,Quantity,Price
 56066348,56066348,559394914,T,T,XOM,23450,632000
 56912431,56912426,594433546,B,D,XOM,113188,644300
 56912686,56912684,594450908,B,D,XOM,104600,644800
-56912845,56912843,594466704,B,D,XOM,101700,644400
-56912875,56912874,594468729,B,E,XOM,10595,644700
-56912877,56912875,594468729,B,D,XOM,88805,644700
-56912899,56912897,594470122,B,D,XOM,88605,644700
 
+# CONVERT.awk
 
+USAGE
 
+echo "TimeinMSafterMidnight"|./MS_AFTER_MIDNIGHT_CONVERT.awk
 
+for example
 
-for example will only grab lines where the value of field 7 is than 100"
+$ echo 52964083|./MS_AFTER_MIDNIGHT_CONVERT.awk
+
+14:42:44.083,52964083
+
+Note I print the converted time followed by $0 so if your first field of an CSV contains the timestamp you can do the following
+$ cat XOM.csv|./MS_AFTER_MIDNIGHT_CONVERT.awk
+
+and as long as the timestamp in milliseconds is the first field, it all append the rest of the line after the converted timestamp.
+
+14:42:44.135,52964135,52964135,415013695,T,T,XOM,300,639300
+14:42:44.135,52964135,52913010,412835503,B,F,XOM,100,639200
+14:42:44.135,52964135,52947118,414435037,B,F,XOM,200,639200
+14:42:44.135,52964135,52947119,414435056,B,F,XOM,200,639200
+14:42:44.135,52964135,52964134,415051224,B,E,XOM,300,639200
+ 
 
