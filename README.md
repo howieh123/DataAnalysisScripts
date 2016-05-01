@@ -94,10 +94,10 @@ If you want to clean up the pipeline, just use Brendan Gregg's perl script "freq
 
 cat XOM.csv|./SUBSTR.awk 1 5|./freqcount -f1 -d,|head -5
 
-54:53316
-37:53133
-33:53561
-33:53167
-26:53127
+54:53316  
+37:53133  
+33:53561  
+33:53167  
+26:53127  
  
 
