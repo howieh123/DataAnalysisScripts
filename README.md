@@ -1,5 +1,5 @@
 # DataAnalysisScripts
-Scripts based on awk for quickly analyzing csv files
+Scripts in awk and python for analyzing and working with csv files
 
 # LT.awk - LessThan
 
@@ -98,5 +98,16 @@ If you want to clean up the pipeline, just use Brendan Gregg's perl script "freq
     33:53561  
     33:53167  
     26:53127  
+    
+# split.py
+
+Python version of the UNIX split command
+
+USAGE
+
+python split.py --filename somefile --lines numoflines
+
+Will split the file into multiple files based on number of lines.  filename.0, filename.1, etc
+
  
 
