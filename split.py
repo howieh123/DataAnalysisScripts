@@ -18,10 +18,10 @@ parser = argparse.ArgumentParser(description='Simple Python Split Program, split
 parser.add_argument('-f','--filename', help='Name of File to split', required=True)
 parser.add_argument('-l','--lines', type=int, help='Number of Lines to split the file at', required=True)
 
-args = vars(parser.parse_args())
+args = parser.parse_args()
 
-numoflines = args['lines']
-filename = args['filename']
+numoflines = args.lines
+filename = args.filename
 
 with open(filename) as bigfile:
     for part, lines in enumerate(chunks(bigfile, numoflines)):
